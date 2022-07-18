@@ -1,0 +1,26 @@
+plugins {
+	id 'java'
+	id 'jacoco'
+}
+
+group = 'com.mrmarmitt.ca'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'jacoco'
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		compileOnly 'org.projectlombok:lombok:1.18.20'
+		annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
